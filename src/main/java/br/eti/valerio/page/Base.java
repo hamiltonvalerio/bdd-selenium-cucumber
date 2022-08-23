@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class Base {
 
 	@Autowired
-	protected WebDriver driver;
+	public WebDriver driver;
 
 	@Autowired
-	protected WebDriverWait wait;
+	public WebDriverWait wait;
 
 	@PostConstruct
 	private void init() {

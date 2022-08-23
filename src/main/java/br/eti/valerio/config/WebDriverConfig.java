@@ -14,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 @Configuration
 public class WebDriverConfig {
 	
-	@Value("${default.timeout:30}")
+	@Value("${default.timeout:60}")
 	private int timeout;
 
 	@Bean

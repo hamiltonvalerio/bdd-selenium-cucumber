@@ -1,6 +1,7 @@
 package br.eti.valerio.googletest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,6 +10,7 @@ import br.eti.valerio.page.google.GooglePage;
 
 public class GoogleTest extends SpringBaseTestNGTest{
 
+	@Lazy
 	@Autowired
 	private GooglePage googlePage;
 	

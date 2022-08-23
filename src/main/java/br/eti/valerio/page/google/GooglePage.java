@@ -35,8 +35,8 @@ public class GooglePage extends Base {
 		return this.searchComponent.isAt();
 	}
 
-	/*public void close() {
+	public void quit() {
 		this.driver.quit();
-	}*/
+	}
 
 }

@@ -1,9 +1,12 @@
 package bdd;
 
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import org.springframework.context.annotation.Lazy;
 import org.testng.Assert;
 
 import br.eti.valerio.page.google.GooglePage;
@@ -15,9 +18,15 @@ import io.cucumber.java.en.When;
 @SpringBootTest
 public class GoogleSteps {
 
+    @Lazy
     @Autowired
 	private GooglePage googlePage;
-	
+
+    /*@Before
+    public void beforeScenario(){
+        this.googlePage.goTo();
+    }*/
+
 	@Given("Eu estiver no site do google")
     public void eu_estiver_no_site_do_google(){
         this.googlePage.goTo();
@@ -28,7 +37,7 @@ public class GoogleSteps {
     	this.googlePage.getSearchComponent().search(keyword);
     }
 
-    @And("Eu clico no botão search")
+    @Then("Eu devo ver os resultados da busca")
     public void eu_clico_no_boto_search() {
     	Assert.assertTrue(this.googlePage.getSearchResult().isAt());
     }
@@ -38,4 +47,8 @@ public class GoogleSteps {
     	Assert.assertTrue(this.googlePage.getSearchResult().getCount() >= count);
     }
 
+    /*@After()
+    public void closeBrowser() {
+        googlePage.quit();
+    }*/
 }
